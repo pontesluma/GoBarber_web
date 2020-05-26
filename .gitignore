@@ -11,8 +11,6 @@
 # production
 /build
 
-/src/pages/Dashboard
-
 # misc
 .DS_Store
 .env.local
