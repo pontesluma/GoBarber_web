@@ -1,12 +1,21 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-import { Container } from './styles';
+import { FiLoader } from 'react-icons/fi';
+import { Container, Loading } from './styles';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  loading?: boolean;
+};
 
-const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
+const Button: React.FC<ButtonProps> = ({ children, loading, ...rest }) => (
   <Container type="button" {...rest}>
-    {children}
+    {loading ? (
+      <Loading>
+        <FiLoader size={25} />
+      </Loading>
+    ) : (
+      children
+    )}
   </Container>
 );
 
